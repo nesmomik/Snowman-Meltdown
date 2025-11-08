@@ -13,7 +13,7 @@ def get_random_word():
 
 def display_game_state(mistakes, solution_list):
     print(STAGES[mistakes])
-    print("Word: " + str(solution_list))
+    print("Word: " + "".join(solution_list))
 
     
 def play_game():
