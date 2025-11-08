@@ -35,7 +35,13 @@ def play_game():
         display_game_state(mistakes, solution_list)
 
         guess = input("Guess a letter: ").lower()
+        
+        if not guess.isalpha() or not len(guess) == 1:
+            print("Please enter a single letter to save the snowman!")
+            break
+
         print("You guessed:", guess)
+
 
         foundLetter = False
         # loop through the whole secret word to search for entered letter
