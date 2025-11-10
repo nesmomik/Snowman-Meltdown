@@ -1,12 +1,7 @@
 import random
 
-from ascii_art import MAX_MISTAKES
+from game_assets import MAX_MISTAKES, WORDS
 from game_display import display_intro, display_input, display_win, display_loss
-
-# List of secret words
-# For testing
-# WORDS = ["snowman"]
-WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 
 def get_random_word():

@@ -1,7 +1,7 @@
 from subprocess import call
 import os
 import sys
-from ascii_art import STAGES, MAX_MISTAKES
+from game_assets import STAGES, MAX_MISTAKES
 
 
 def clear_screen():

@@ -1,3 +1,5 @@
+# List of secret words
+WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 # Number of snowman stages
 MAX_MISTAKES = 4
@@ -42,5 +44,5 @@ STAGES = [
 
 
       ___  
-     """
+     """,
 ]
