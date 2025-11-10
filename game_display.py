@@ -5,10 +5,12 @@ from game_assets import STAGES, MAX_MISTAKES
 
 
 def clear_screen():
+    """ clears the terminal """
     call("clear" if os.name == "posix" else "cls")
 
 
 def display_intro():
+    """ displays the welcome screen """
     clear_screen()
 
     print("Welcome to Snowman Meltdown!")
@@ -22,6 +24,7 @@ def display_intro():
 
 
 def display_game_state(mistakes, solution_list):
+    """ displays only the game state """
     clear_screen()
     print(f"You only have {MAX_MISTAKES - mistakes} tries left.")
     print(STAGES[mistakes])
@@ -29,6 +32,7 @@ def display_game_state(mistakes, solution_list):
 
     
 def display_input(mistakes, solution_list):
+    """ displays only the input loop """
     validInput = False
     while not validInput:
         display_game_state(mistakes, solution_list)
@@ -47,6 +51,7 @@ def display_input(mistakes, solution_list):
 
 
 def display_win(mistakes, solution_list):
+    """ displays the win screen """
     display_game_state(mistakes, solution_list)
     print("Yay, you saved the snowman!") 
     if input("Press enter key to restart, any key + enter to exit.\n"):
@@ -54,6 +59,7 @@ def display_win(mistakes, solution_list):
 
 
 def display_loss(mistakes, solution_list):
+    """ displays the loss screen """
     display_game_state(mistakes, solution_list)
     print("Sorry, the snowman is gone!") 
     if input("Press enter key to restart, any key + enter to exit.\n"):
