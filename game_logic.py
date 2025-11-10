@@ -1,7 +1,7 @@
 import random
 
 from game_assets import MAX_MISTAKES, WORDS
-from game_display import display_intro, display_input, display_win, display_loss
+from game_display import display_input, display_win, display_loss
 
 
 def get_random_word():
@@ -11,8 +11,6 @@ def get_random_word():
 
 def play_game():
     secret_word = get_random_word()
-
-    display_intro()
 
     # create solution list with length of secret word
     # and fill it with underscores + padding
@@ -42,6 +40,8 @@ def play_game():
 
         if mistakes == MAX_MISTAKES:
             display_loss(mistakes, solution_list)
+            break
 
         if replaced_letters == len(secret_word):
             display_win(mistakes, solution_list)
+            break

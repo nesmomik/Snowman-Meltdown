@@ -17,7 +17,7 @@ def display_intro():
 
     print(f"You can only make {MAX_MISTAKES} mistakes.")
     print("Can you save the snowman?")
-    if input("Press enter key to continue, any key + enter to exit.\n"):
+    if input("Press enter key to start a game, any key + enter to exit.\n"):
         sys.exit("Goodbye!")
 
 
@@ -49,12 +49,12 @@ def display_input(mistakes, solution_list):
 def display_win(mistakes, solution_list):
     display_game_state(mistakes, solution_list)
     print("Yay, you saved the snowman!") 
-    if input("Press enter key to continue, any key + enter to exit.\n"):
+    if input("Press enter key to restart, any key + enter to exit.\n"):
         sys.exit("Goodbye!")
 
 
 def display_loss(mistakes, solution_list):
     display_game_state(mistakes, solution_list)
     print("Sorry, the snowman is gone!") 
-    if input("Press enter key to continue, any key + enter to exit.\n"):
+    if input("Press enter key to restart, any key + enter to exit.\n"):
         sys.exit("Goodbye!")
