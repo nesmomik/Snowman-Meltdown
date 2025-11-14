@@ -5,16 +5,16 @@ from game_display import display_input, display_win, display_loss
 
 
 def get_random_word():
-    """ Selects a random word from the list. """
+    """Selects a random word from the list"""
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 
 def play_game():
-    """ contains the game loop """
+    """contains the game loop"""
+    # the word to guess
     secret_word = get_random_word()
 
-    # create solution list with length of secret word
-    # and fill it with underscores + padding
+    # the list that gets filled during the game
     solution_list = []
     for i in range(len(secret_word)):
         solution_list.append("_ ")

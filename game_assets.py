@@ -38,6 +38,7 @@ STAGES = [
       ___  
      /___\\ 
      """,
+    # Stage 4: Lost screen
     """
 
 
