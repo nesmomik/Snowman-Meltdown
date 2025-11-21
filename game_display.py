@@ -34,8 +34,8 @@ def display_game_state(mistakes, solution_list):
 
 def display_input(mistakes, solution_list):
     """displays only the input loop"""
-    validInput = False
-    while not validInput:
+    valid_input = False
+    while not valid_input:
         display_game_state(mistakes, solution_list)
         guess = input("Guess a letter: ").lower()
 
@@ -44,11 +44,34 @@ def display_input(mistakes, solution_list):
             if input("Press enter key to continue, any key + enter to exit.\n"):
                 sys.exit("Goodbye!")
         else:
-            validInput = True
-
-    print("You guessed:", guess)
+            valid_input = True
 
     return guess
+
+
+def display_correct_guess(guess, mistakes, solution_list):
+    """display when a letter was guessed for first time"""
+    display_game_state(mistakes, solution_list)
+    print(f"Very nice, you guessed the letter {guess}.")
+    if input("Press enter key to continue, any key + enter to exit.\n"):
+        sys.exit("Goodbye!")
+
+
+def display_wrong_guess(guess, mistakes, solution_list):
+    """display when a letter was not in solution"""
+    display_game_state(mistakes, solution_list)
+    print(f"Oh oh, the letter {guess} is not in the word.")
+    if input("Press enter key to continue, any key + enter to exit.\n"):
+        sys.exit("Goodbye!")
+
+
+def display_repeated_guess(guess, mistakes, solution_list):
+    """display when the same letter was guessed before"""
+    display_game_state(mistakes, solution_list)
+    print(f"You already guessed the letter {guess} before.")
+    if input("Press enter key to continue, any key + enter to exit.\n"):
+        sys.exit("Goodbye!")
+
 
 
 def display_win(mistakes, solution_list):
@@ -59,9 +82,9 @@ def display_win(mistakes, solution_list):
         sys.exit("Goodbye!")
 
 
-def display_loss(mistakes, solution_list):
+def display_loss(secret_word, mistakes, solution_list):
     """displays the lost screen"""
     display_game_state(mistakes, solution_list)
-    print("Sorry, the snowman is gone!")
+    print(f"Sorry, the snowman is gone! The word was: {secret_word}")
     if input("Press enter key to restart, any key + enter to exit.\n"):
         sys.exit("Goodbye!")
