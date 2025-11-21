@@ -7,7 +7,7 @@ from game_display import (
     display_loss,
     display_correct_guess,
     display_wrong_guess,
-    display_repeated_guess
+    display_repeated_guess,
 )
 
 
@@ -33,12 +33,13 @@ def play_game():
         solution_list.append("_ ")
 
     # game state variables
+    max_mistakes = get_max_mistakes()
     mistakes = 0
     replaced_letters = 0
 
     # game loop
     while True:
-        guess = display_input(mistakes, solution_list)
+        guess = display_input(max_mistakes, mistakes, solution_list)
         foundLetter = False
         # loop through the whole secret word to search for entered letter
         for char in secret_word:
@@ -50,23 +51,26 @@ def play_game():
                     if secret_word[i] == guess and solution_list[i] == "_ ":
                         solution_list[i] = guess + " "
                         replaced_letters += 1
-                        display_correct_guess(guess, mistakes, solution_list)
+                        display_correct_guess(
+                            guess, max_mistakes, mistakes, solution_list
+                        )
                     # if match and if letter replaced before
-                    elif (secret_word[i] == guess 
-                          and solution_list[i] == f"{guess} "):
-                        display_repeated_guess(guess, mistakes, solution_list)
+                    elif secret_word[i] == guess and solution_list[i] == f"{guess} ":
+                        display_repeated_guess(
+                            guess, max_mistakes, mistakes, solution_list
+                        )
 
         # wrong guess
         if not foundLetter:
             mistakes += 1
-            display_wrong_guess(guess, mistakes, solution_list)
+            display_wrong_guess(guess, max_mistakes, mistakes, solution_list)
 
         # game loss
-        if mistakes == get_max_mistakes(): 
-            display_loss(mistakes, solution_list)
+        if mistakes == get_max_mistakes():
+            display_loss(secret_word, max_mistakes, mistakes, solution_list)
             break
 
         # game win
         if replaced_letters == len(secret_word):
-            display_win(mistakes, solution_list)
+            display_win(max_mistakes, mistakes, solution_list)
             break
